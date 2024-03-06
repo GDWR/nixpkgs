@@ -1,0 +1,15 @@
+diff --git a/extension.js b/extension.js
+index 409cf25..44eee54 100644
+--- a/extension.js
++++ b/extension.js
+@@ -8,6 +8,10 @@
+ 
+ import { TodoTxtManager } from './libs/todoTxtManager.js';
+ import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
++import GIRepository from "gi://GIRepository";
++
++GIRepository.Repository.prepend_search_path('@clutter_path@');
++await import("gi://Clutter");
+ 
+ export default class TodoTxtExtension extends Extension {
+     enable() {
