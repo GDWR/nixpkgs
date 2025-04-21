@@ -54,7 +54,7 @@ stdenv.mkDerivation rec {
       shift_by=$(expr $new_size - $orig_size)
 
       function fix_offset {
-        location=$(grep -bUam1 "$1" ${binaryLocation} | cut -d: -f1)
+        location=$(grep -bam1 "$1" ${binaryLocation} | cut -d: -f1)
         location=$(expr $location + $var_skip)
         value=$(dd if=${binaryLocation} iflag=count_bytes,skip_bytes skip=$location \
                    bs=1 count=$var_select status=none)
